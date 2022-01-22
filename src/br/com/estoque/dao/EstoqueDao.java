@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.com.estoque.factory.ConnectionFactory;
 import br.com.estoque.model.Estoque;
 
@@ -30,7 +32,7 @@ public class EstoqueDao
 		
 		try 
 		{
-			//Cria uma conexão com o banco de dados
+			//Cria uma conexï¿½o com o banco de dados
 			conn = ConnectionFactory.createConnectionToMySQL();
 			
 			//Criado um PreparedStatement, para executar uma Query
@@ -49,6 +51,9 @@ public class EstoqueDao
 			
 			//executar a query
 			pstm.execute();	
+			
+			JOptionPane.showMessageDialog(null, "Adicionado com sucesso","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			
 		}
 		catch (Exception error) 
 		{
@@ -56,7 +61,7 @@ public class EstoqueDao
 		}
 		finally 
 		{
-			//Fechar as conexões
+			//Fechar as conexï¿½es
 			try 
 			{
 				if(pstm != null) 
@@ -100,7 +105,7 @@ public class EstoqueDao
 				Estoque estoque = new Estoque();
 				
 				/*
-				 * Pega as informações que estão no banco separa 
+				 * Pega as informaï¿½ï¿½es que estï¿½o no banco separa 
 				 * para poder alimentar a lista com os itens do estoque
 				 */
 				
@@ -126,25 +131,25 @@ public class EstoqueDao
 			}
 		finally
 		{	
-				try 
-				{
-					if(rset != null) 
-					{
-						rset.close();
-					}
-					if(pstm != null) 
-					{
-						pstm.close();
-					}
-					if(conn != null) 
-					{
-						conn.close();
-					}
-				}
-				catch(Exception error) 
-				{
-					error.printStackTrace();
-				}
+                    try 
+                    {
+                        if(rset != null) 
+                        {
+                            rset.close();
+                        }
+                        if(pstm != null) 
+                        {
+                            pstm.close();
+                        }
+                        if(conn != null) 
+                        {
+                            conn.close();
+                        }
+                    }
+                    catch(Exception error) 
+                    {
+                        error.printStackTrace();
+                    }
 		}
 		return estoqueList;
 	}
@@ -158,7 +163,7 @@ public class EstoqueDao
 		
 		try 
 		{
-			//Criar conexão com o banco
+			//Criar conexï¿½o com o banco
 			conn = ConnectionFactory.createConnectionToMySQL();
 			
 			//Criar a classe para executar a query
