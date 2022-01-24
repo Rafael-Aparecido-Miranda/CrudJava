@@ -2,6 +2,8 @@ package br.com.estoque.model;
 
 import java.util.Date;
 
+
+
 public class Estoque
 {
 	private int id_estoque;

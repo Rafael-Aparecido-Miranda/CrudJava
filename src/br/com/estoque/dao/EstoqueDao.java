@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 
 import br.com.estoque.factory.ConnectionFactory;
 import br.com.estoque.model.Estoque;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 public class EstoqueDao 
 {
@@ -57,7 +59,7 @@ public class EstoqueDao
 		}
 		catch (Exception error) 
 		{
-			error.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro : \n"+error,"Erro",JOptionPane.INFORMATION_MESSAGE);
 		}
 		finally 
 		{
@@ -112,15 +114,15 @@ public class EstoqueDao
 				estoque.setId_estoque(rset.getInt("ID_ESTOQUE"));
 				estoque.setNome(rset.getString("NOME"));
 				estoque.setModelo(rset.getString("MODELO"));
-				estoque.setFoto(rset.getString("FOTO"));
-				estoque.setDescricao(rset.getString("DESCRICAO"));
-				estoque.setCod_fabricante(rset.getString("COD_FABRICANTE"));
-				estoque.setQuant_atual(rset.getInt("QUANT_ATUAL"));
+                                estoque.setMarca(rset.getString("MARCA"));
+                                estoque.setSetor(rset.getString("SETOR"));
+                                estoque.setPosicao_prateleira(rset.getString("POSICAO_PRATELEIRA"));
+                                estoque.setQuant_atual(rset.getInt("QUANT_ATUAL"));
 				estoque.setQuant_min(rset.getInt("QUANT_MIN"));
-				estoque.setMarca(rset.getString("MARCA"));
-				estoque.setDate_register(rset.getDate("DATE_REGISTER"));
-				estoque.setPosicao_prateleira(rset.getString("POSICAO_PRATELEIRA"));
-				estoque.setSetor(rset.getString("SETOR"));
+                                estoque.setCod_fabricante(rset.getString("COD_FABRICANTE"));
+                                estoque.setDate_register(rset.getDate("DATE_REGISTER"));
+                                estoque.setDescricao(rset.getString("DESCRICAO"));
+				//estoque.setFoto(rset.getString("FOTO"));
 				
 				estoqueList.add(estoque);
 			}
@@ -199,16 +201,19 @@ public class EstoqueDao
 					conn.close();
 				}
 			}
-			catch(Exception error) 
+			catch(SQLException error) 
 			{
 				error.printStackTrace();
 			}
 		}
 	}
 	
-	public void deleteByID(int id) 
+	public void deleteByID(Estoque estoque) 
 	{
-		String sql = "DELETE FROM ESTOQUE WHERE ID_ESTOQUE = ?";
+		String sql = "DELETE FROM ESTOQUEREGISTRO.ESTOQUE WHERE ID_ESTOQUE = ? AND NOME = ? "
+                        + "AND MODELO = ? AND MARCA = ? AND SETOR = ? AND POSICAO_PRATELEIRA "
+                        + "AND QUANT_ATUAL = ? AND QUANT_MIN = ? AND COD_FABRICANTE = ? AND "
+                        + "DATE_REGISTER = ? AND DESCRICAO = ?";
 		
 		Connection conn = null;
 		
@@ -216,18 +221,31 @@ public class EstoqueDao
 		
 		try 
 		{
+                    //String date = new SimpleDateFormat("yyyy-MM-dd").format(estoque.getDate_register());
 			conn = ConnectionFactory.createConnectionToMySQL();
 			
 			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			
-			pstm.setInt(1, id);
-			
+			pstm.setInt(1, estoque.getId_estoque());
+                        pstm.setString(2,estoque.getNome());
+                        pstm.setString(3, estoque.getModelo());
+                        pstm.setString(4, estoque.getMarca());
+                        pstm.setString(5, estoque.getSetor());
+                        pstm.setString(6,estoque.getPosicao_prateleira());
+                        pstm.setInt(7, estoque.getQuant_atual());
+                        pstm.setInt(8, estoque.getQuant_min());
+                        pstm.setString(9, estoque.getCod_fabricante());
+                        pstm.setDate(10, (Date) estoque.getDate_register()) ;
+                        //pstm.setString(11, estoque.getDescricao());
+                        //pstm.setString(12, estoque.getFoto());
+                        			
 			pstm.execute();
+                        JOptionPane.showMessageDialog(null, "Removido com sucesso", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 		catch(Exception error)
 		{
-			error.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro ao remover: \n"+error,"Erro",JOptionPane.INFORMATION_MESSAGE);
 		}
 		finally 
 		{
@@ -242,10 +260,14 @@ public class EstoqueDao
 					conn.close();
 				}
 			}
-			catch(Exception error) 
+			catch(SQLException error) 
 			{
-				error.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro ao desconectar: "+error,"Erro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
+
+    public Estoque update(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

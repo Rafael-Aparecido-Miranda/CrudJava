@@ -71,6 +71,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         ultimo = new javax.swing.JButton();
         id_estoque_Label = new javax.swing.JLabel();
         id_estoque_TextField = new javax.swing.JTextField();
+        date_register_Label = new javax.swing.JLabel();
+        date_register_TextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Calypto");
@@ -136,7 +138,24 @@ public class TelaCadastro extends javax.swing.JFrame {
                 "ID", "NOME", "MODELO", "MARCA", "SETOR", "PRATELEIRA", "QUANTIDADE ATUAL", "QUANTIDADE MÍNIMA", "CÓDIGO DO FABRICANTE", "DATA DO REGISTRO"
             }
         ));
+        tabelaEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaEstoqueMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelaEstoque);
+        if (tabelaEstoque.getColumnModel().getColumnCount() > 0) {
+            tabelaEstoque.getColumnModel().getColumn(0).setHeaderValue("ID");
+            tabelaEstoque.getColumnModel().getColumn(1).setHeaderValue("NOME");
+            tabelaEstoque.getColumnModel().getColumn(2).setHeaderValue("MODELO");
+            tabelaEstoque.getColumnModel().getColumn(3).setHeaderValue("MARCA");
+            tabelaEstoque.getColumnModel().getColumn(4).setHeaderValue("SETOR");
+            tabelaEstoque.getColumnModel().getColumn(5).setHeaderValue("PRATELEIRA");
+            tabelaEstoque.getColumnModel().getColumn(6).setHeaderValue("QUANTIDADE ATUAL");
+            tabelaEstoque.getColumnModel().getColumn(7).setHeaderValue("QUANTIDADE MÍNIMA");
+            tabelaEstoque.getColumnModel().getColumn(8).setHeaderValue("CÓDIGO DO FABRICANTE");
+            tabelaEstoque.getColumnModel().getColumn(9).setHeaderValue("DATA DO REGISTRO");
+        }
 
         novo.setText("NOVO");
         novo.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +179,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
 
         alterar.setText("ALTERAR");
+        alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarActionPerformed(evt);
+            }
+        });
 
         excluir.setText("EXCLUIR");
         excluir.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +210,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                 id_estoque_TextFieldActionPerformed(evt);
             }
         });
+
+        date_register_Label.setText("DATA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,16 +260,19 @@ public class TelaCadastro extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(id_estoque_Label)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(id_estoque_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 44, Short.MAX_VALUE))
-                                    .addComponent(setor_TextField))))
+                                        .addComponent(id_estoque_TextField))
+                                    .addComponent(setor_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(descricao_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(216, 216, 216)
-                                .addComponent(foto_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(foto_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(date_register_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(date_register_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(437, 437, 437))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +349,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(id_estoque_Label)
-                            .addComponent(id_estoque_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(id_estoque_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(date_register_Label)
+                            .addComponent(date_register_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(primeiro)
@@ -394,10 +425,28 @@ public class TelaCadastro extends javax.swing.JFrame {
         stq.setDate_register(new Date());
         
         stqDao.save(stq);
+        try {
+            carregarTabela();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_gravarActionPerformed
 
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
-        // TODO add your handling code here:
+        
+        Estoque stq = new Estoque();
+        EstoqueDao stqDao = new EstoqueDao();
+        
+        int index = tabelaEstoque.getSelectedRow();
+        
+        stq = stqDao.getEstoqueRegistro().get(index);
+        stqDao.deleteByID(stq);
+        
+        try {
+            carregarTabela();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_excluirActionPerformed
 
     private void id_estoque_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_estoque_TextFieldActionPerformed
@@ -407,6 +456,58 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void quant_min_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quant_min_TextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_quant_min_TextFieldActionPerformed
+
+    private void tabelaEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEstoqueMouseClicked
+        
+        Estoque stq = new Estoque();
+        EstoqueDao stqDao = new EstoqueDao();
+        
+        int index = tabelaEstoque.getSelectedRow();
+        
+        stq = stqDao.getEstoqueRegistro().get(index);
+        
+        //Seta as informações no campo de texto quando clica no item da tabela
+        id_estoque_TextField.setText(String.valueOf(stq.getId_estoque()));
+        nome_TextField.setText(stq.getNome());
+        modelo_TextField.setText(stq.getModelo());
+        marca_TextField.setText(stq.getModelo());
+        setor_TextField.setText(stq.getSetor());
+        posicao_prateleira_TextField.setText(stq.getPosicao_prateleira());
+        quant_atual_TextField.setText(String.valueOf(stq.getQuant_atual()));
+        quant_min_TextField.setText(String.valueOf(stq.getQuant_min()));
+        cod_fabricante_TextField.setText(stq.getCod_fabricante());
+        date_register_TextField.setText(stq.getDate_register().toString());
+        descricao_TextArea.setText(stq.getDescricao());
+        
+    }//GEN-LAST:event_tabelaEstoqueMouseClicked
+
+    private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
+        
+        Estoque stq = new Estoque();
+        EstoqueDao stqDao = new EstoqueDao();
+        
+        int index = tabelaEstoque.getSelectedRow(); //retorna o numero da linha selecionada
+        
+        stq = stqDao.getEstoqueRegistro().get(index);
+        
+        stq.setNome(nome_TextField.getText());
+        stq.setModelo(modelo_TextField.getText());
+        stq.setMarca(marca_TextField.getText());
+        stq.setSetor(setor_TextField.getText());
+        stq.setPosicao_prateleira(posicao_prateleira_TextField.getText());
+        stq.setQuant_atual(Integer.parseInt(quant_atual_TextField.getText()));
+        stq.setQuant_min(Integer.parseInt(quant_min_TextField.getText()));
+        stq.setCod_fabricante(cod_fabricante_TextField.getText());
+        stq.setDescricao(descricao_TextArea.getText());
+        
+        stqDao.update(stq);
+        try {
+            carregarTabela();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_alterarActionPerformed
     
     private void carregarTabela() throws Exception{
         DefaultTableModel modelo = (DefaultTableModel) tabelaEstoque.getModel();
@@ -506,6 +607,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JButton avancar;
     private javax.swing.JLabel cod_fabricante_Label;
     private javax.swing.JTextField cod_fabricante_TextField;
+    private javax.swing.JLabel date_register_Label;
+    private javax.swing.JTextField date_register_TextField;
     private javax.swing.JLabel descricao_Label;
     private javax.swing.JTextArea descricao_TextArea;
     private javax.swing.JButton excluir;
