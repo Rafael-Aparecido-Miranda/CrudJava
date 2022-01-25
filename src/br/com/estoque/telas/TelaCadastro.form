@@ -92,40 +92,37 @@
                                           <Component id="quant_min_Label" min="-2" pref="138" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="quant_atual_Label" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <Component id="setor_Label" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="quant_min_TextField" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="quant_atual_TextField" max="32767" attributes="0"/>
                                       <Component id="cod_fabricante_TextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="quant_atual_TextField" max="32767" attributes="0"/>
+                                      <Component id="setor_TextField" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="setor_Label" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                                  <Component id="id_estoque_Label" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="id_estoque_Label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="id_estoque_TextField" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="setor_TextField" pref="131" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="id_estoque_TextField" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="descricao_Label" min="-2" pref="61" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
                                   <Component id="foto_Label" min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="date_register_Label" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="date_register_TextField" min="-2" pref="141" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="437" max="-2" attributes="0"/>
                       </Group>
@@ -134,9 +131,9 @@
                               <Group type="102" attributes="0">
                                   <Component id="novo" min="-2" pref="78" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="gravar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btGravar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="alterar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btAlterar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="primeiro" min="-2" max="-2" attributes="0"/>
@@ -149,7 +146,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="voltar" min="-2" max="-2" attributes="0"/>
-                              <Component id="excluir" min="-2" max="-2" attributes="0"/>
+                              <Component id="btExcluir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -191,45 +188,47 @@
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="novo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="gravar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="alterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="excluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btGravar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cod_fabricante_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cod_fabricante_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="descricao_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="foto_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="cod_fabricante_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cod_fabricante_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="descricao_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="foto_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="quant_min_TextField" min="-2" max="-2" attributes="0"/>
                                       <Component id="quant_min_Label" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="quant_atual_TextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="quant_atual_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="quant_atual_Label" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="setor_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="setor_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="setor_Label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="setor_TextField" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="id_estoque_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="id_estoque_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="date_register_Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="date_register_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="date_register_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="date_register_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="id_estoque_TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="id_estoque_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -243,7 +242,7 @@
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="396" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="420" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -300,28 +299,51 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="modelo_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nome_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nome_TextFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="marca_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="posicao_prateleira_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="posicao_prateleira_TextFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="setor_TextField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setor_TextFieldActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="cod_fabricante_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="quant_min_TextField">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
           <Events>
@@ -329,6 +351,11 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="quant_atual_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -361,67 +388,67 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="10" rowCount="0">
-                    <Column editable="true" title="ID" type="java.lang.Object"/>
-                    <Column editable="true" title="NOME" type="java.lang.Object"/>
-                    <Column editable="true" title="MODELO" type="java.lang.Object"/>
-                    <Column editable="true" title="MARCA" type="java.lang.Object"/>
-                    <Column editable="true" title="SETOR" type="java.lang.Object"/>
-                    <Column editable="true" title="PRATELEIRA" type="java.lang.Object"/>
-                    <Column editable="true" title="QUANTIDADE ATUAL" type="java.lang.Object"/>
-                    <Column editable="true" title="QUANTIDADE M&#xcd;NIMA" type="java.lang.Object"/>
-                    <Column editable="true" title="C&#xd3;DIGO DO FABRICANTE" type="java.lang.Object"/>
-                    <Column editable="true" title="DATA DO REGISTRO" type="java.lang.Object"/>
+                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                    <Column editable="false" title="NOME" type="java.lang.Object"/>
+                    <Column editable="false" title="MODELO" type="java.lang.Object"/>
+                    <Column editable="false" title="MARCA" type="java.lang.Object"/>
+                    <Column editable="false" title="SETOR" type="java.lang.Object"/>
+                    <Column editable="false" title="PRATELEIRA" type="java.lang.Object"/>
+                    <Column editable="false" title="QUANTIDADE ATUAL" type="java.lang.Object"/>
+                    <Column editable="false" title="QUANTIDADE M&#xcd;NIMA" type="java.lang.Object"/>
+                    <Column editable="false" title="C&#xd3;DIGO DO FABRICANTE" type="java.lang.Object"/>
+                    <Column editable="false" title="DATA DO REGISTRO" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="ID"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="NOME"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="MODELO"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="MARCA"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="SETOR"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="PRATELEIRA"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="QUANTIDADE ATUAL"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="QUANTIDADE M&#xcd;NIMA"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="C&#xd3;DIGO DO FABRICANTE"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="DATA DO REGISTRO"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
@@ -453,28 +480,28 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="primeiroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="gravar">
+        <Component class="javax.swing.JButton" name="btGravar">
           <Properties>
             <Property name="text" type="java.lang.String" value="GRAVAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gravarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGravarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="alterar">
+        <Component class="javax.swing.JButton" name="btAlterar">
           <Properties>
             <Property name="text" type="java.lang.String" value="ALTERAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="excluir">
+        <Component class="javax.swing.JButton" name="btExcluir">
           <Properties>
             <Property name="text" type="java.lang.String" value="EXCLUIR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluirActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="voltar">
@@ -511,6 +538,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="date_register_TextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="setor_TextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

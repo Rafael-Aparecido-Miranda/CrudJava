@@ -26,7 +26,15 @@ public class EstoqueDao
 	
 	public void save(Estoque estoque) 
 	{
-		String sql = "INSERT INTO ESTOQUEREGISTRO.ESTOQUE(NOME, MODELO, DESCRICAO, COD_FABRICANTE, QUANT_ATUAL, QUANT_MIN, MARCA, DATE_REGISTER, POSICAO_PRATELEIRA, SETOR) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ESTOQUEREGISTRO.ESTOQUE(NOME, "
+                        + "MODELO, "
+                        + "DESCRICAO, "
+                        + "COD_FABRICANTE, "
+                        + "QUANT_ATUAL, "
+                        + "QUANT_MIN, "
+                        + "MARCA, DATE_REGISTER, "
+                        + "POSICAO_PRATELEIRA, "
+                        + "SETOR) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		
@@ -158,7 +166,14 @@ public class EstoqueDao
 	
 	public void update(Estoque estoque) 
 	{
-		String sql = "UPDATE ESTOQUE SET NOME = ?, MODELO = ?, DESCRICAO = ?, QUANT_ATUAL = ?, QUANT_MIN = ?, MARCA = ?, DATE_REGISTER = ?, POSICAO_PRATELEIRA = ? " + "WHERE ID_ESTOQUE = ?";
+		String sql = "UPDATE ESTOQUE SET NOME = ?, "
+                        + "MODELO = ?, "
+                        + "DESCRICAO = ?, "
+                        + "QUANT_ATUAL = ?, "
+                        + "QUANT_MIN = ?, "
+                        + "MARCA = ?, "
+                        + "DATE_REGISTER = ?, "
+                        + "POSICAO_PRATELEIRA = ? " + "WHERE ID_ESTOQUE = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -210,10 +225,19 @@ public class EstoqueDao
 	
 	public void deleteByID(Estoque estoque) 
 	{
-		String sql = "DELETE FROM ESTOQUEREGISTRO.ESTOQUE WHERE ID_ESTOQUE = ? AND NOME = ? "
-                        + "AND MODELO = ? AND MARCA = ? AND SETOR = ? AND POSICAO_PRATELEIRA "
-                        + "AND QUANT_ATUAL = ? AND QUANT_MIN = ? AND COD_FABRICANTE = ? AND "
-                        + "DATE_REGISTER = ? AND DESCRICAO = ?";
+		String sql = "DELETE FROM ESTOQUEREGISTRO.ESTOQUE "
+                        + "WHERE "
+                            + "ID_ESTOQUE = ? "
+                            + "AND NOME = ? "
+                            + "AND MODELO = ? "
+                            + "AND MARCA = ? "
+                            + "AND SETOR = ? "
+                            + "AND POSICAO_PRATELEIRA = ? "
+                            + "AND QUANT_ATUAL = ? "
+                            + "AND QUANT_MIN = ? "
+                            + "AND COD_FABRICANTE = ? "
+                            + "AND DATE_REGISTER = ? "
+                            + "AND DESCRICAO = ?";
 		
 		Connection conn = null;
 		
@@ -236,7 +260,7 @@ public class EstoqueDao
                         pstm.setInt(8, estoque.getQuant_min());
                         pstm.setString(9, estoque.getCod_fabricante());
                         pstm.setDate(10, (Date) estoque.getDate_register()) ;
-                        //pstm.setString(11, estoque.getDescricao());
+                        pstm.setString(11, estoque.getDescricao());
                         //pstm.setString(12, estoque.getFoto());
                         			
 			pstm.execute();
