@@ -76,11 +76,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         date_register_Label = new javax.swing.JLabel();
         date_register_TextField = new javax.swing.JTextField();
         setor_TextField = new javax.swing.JTextField();
+        jScrollBar1 = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Calypto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de almoxarifado"));
+        jPanel1.setAutoscrolls(true);
 
         nome_Label.setText("Nome");
 
@@ -138,6 +140,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        tabelaEstoque.setAutoCreateRowSorter(true);
         tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -154,6 +157,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaEstoque.setShowGrid(true);
+        tabelaEstoque.setShowHorizontalLines(true);
+        tabelaEstoque.setShowVerticalLines(true);
         tabelaEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaEstoqueMouseClicked(evt);
@@ -219,6 +225,8 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         setor_TextField.setBorder(null);
 
+        jScrollBar1.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -226,78 +234,83 @@ public class TelaCadastro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(posicao_prateleira_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(posicao_prateleira_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(marca_Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                                        .addComponent(nome_Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(modelo_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nome_TextField)
-                                    .addComponent(modelo_TextField)
-                                    .addComponent(marca_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))))
-                        .addGap(88, 88, 88)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(posicao_prateleira_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(posicao_prateleira_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(marca_Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(nome_Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(modelo_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(nome_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                            .addComponent(modelo_TextField)
+                                            .addComponent(marca_TextField))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(cod_fabricante_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(quant_min_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(quant_atual_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(setor_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(quant_min_TextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cod_fabricante_TextField)
-                                    .addComponent(quant_atual_TextField)
-                                    .addComponent(setor_TextField)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(cod_fabricante_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(quant_min_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(quant_atual_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(setor_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(quant_min_TextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(cod_fabricante_TextField)
+                                            .addComponent(quant_atual_TextField)
+                                            .addComponent(setor_TextField)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(151, 151, 151)
+                                        .addComponent(id_estoque_Label)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(id_estoque_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(30, 30, 30))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(151, 151, 151)
-                                .addComponent(id_estoque_Label)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(novo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btGravar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btAlterar))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(primeiro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ultimo)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(avancar)))
                                 .addGap(18, 18, 18)
-                                .addComponent(id_estoque_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 70, Short.MAX_VALUE)))
-                        .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(voltar)
+                                    .addComponent(btExcluir))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(descricao_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(456, 456, 456)
-                                .addComponent(foto_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(date_register_Label)
                                 .addGap(18, 18, 18)
                                 .addComponent(date_register_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(437, 437, 437))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(novo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btGravar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btAlterar))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(primeiro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ultimo)
-                                .addGap(12, 12, 12)
-                                .addComponent(avancar)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(voltar)
-                            .addComponent(btExcluir))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(descricao_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(189, 189, 189)
+                                .addComponent(foto_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(704, 704, 704))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,8 +378,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(voltar)
                         .addComponent(avancar)
                         .addComponent(ultimo)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -375,15 +391,15 @@ public class TelaCadastro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -449,12 +465,27 @@ public class TelaCadastro extends javax.swing.JFrame {
         int index = tabelaEstoque.getSelectedRow();
         
         stq = stqDao.getEstoqueRegistro().get(index);
-        stqDao.deleteByID(stq);
         
-        try {
-            carregarTabela();
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(null, "Erro ao exluir "+error,"ERRO",HEIGHT);
+        switch(JOptionPane.showConfirmDialog(null, "Deseja excluir o item de código: \n"+
+                stq.getId_estoque()+"\n"+
+                "Nome: "+stq.getNome(),
+                "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE))
+        {
+            case 0:
+                stqDao.deleteByID(stq);
+
+                try {
+                    carregarTabela();
+                } catch (Exception error) {
+                    JOptionPane.showMessageDialog(null, "Erro ao exluir "+error,"ERRO",HEIGHT);
+                }
+                
+                break;
+
+            case 1:
+                JOptionPane.showMessageDialog(null, "Nenhuma exclusão foi feita","AVISO.",JOptionPane.INFORMATION_MESSAGE);
+                
+                break;
         }
     }//GEN-LAST:event_btExcluirActionPerformed
     
@@ -549,6 +580,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         btGravar.setEnabled(false);
         btExcluir.setEnabled(true);
         btAlterar.setEnabled(true);
+        habilitaCampText();
         
     }//GEN-LAST:event_tabelaEstoqueMouseClicked
 
@@ -561,18 +593,52 @@ public class TelaCadastro extends javax.swing.JFrame {
         
         stq = stqDao.getEstoqueRegistro().get(index);
         
-        stq.setNome(nome_TextField.getText());
-        stq.setModelo(modelo_TextField.getText());
-        stq.setMarca(marca_TextField.getText());
-        stq.setSetor(setor_TextField.getText());
-        stq.setPosicao_prateleira(posicao_prateleira_TextField.getText());
-        stq.setQuant_atual(Integer.parseInt(quant_atual_TextField.getText()));
-        stq.setQuant_min(Integer.parseInt(quant_min_TextField.getText()));
-        stq.setCod_fabricante(cod_fabricante_TextField.getText());
-        stq.setDescricao(descricao_TextArea.getText());
-        
-        stqDao.update(stq);
-        limparTexto();
+        switch(JOptionPane.showConfirmDialog(null, 
+                "ALTERAÇÃO DE DADOS \n"+
+                    stq.getNome()+"\n"+
+                    stq.getModelo()+"\n"+
+                    stq.getMarca()+"\n"+
+                    stq.getSetor()+"\n"+
+                    stq.getPosicao_prateleira()+"\n"+
+                    stq.getQuant_atual()+"\n"+
+                    stq.getQuant_min()+"\n"+
+                    stq.getCod_fabricante()+"\n"+
+                    stq.getDescricao()+"\n"+
+                "SERÁ ALTERADO PARA \n"+
+                    nome_TextField.getText()+"\n"+
+                    modelo_TextField.getText()+"\n"+
+                    marca_TextField.getText()+"\n"+
+                    setor_TextField.getText()+"\n"+
+                    posicao_prateleira_TextField.getText()+"\n"+
+                    quant_atual_TextField.getText()+"\n"+
+                    quant_min_TextField.getText()+"\n"+
+                    cod_fabricante_TextField.getText()+"\n"+
+                    descricao_TextArea.getText()+"\n"+
+                "DESEJA REALMENTE ALTERAR OS CAMPOS ?"
+                ,"Alteração de dados",JOptionPane.YES_NO_OPTION))
+        {
+            case 0:
+                stq.setNome(nome_TextField.getText());
+                stq.setModelo(modelo_TextField.getText());
+                stq.setMarca(marca_TextField.getText());
+                stq.setSetor(setor_TextField.getText());
+                stq.setPosicao_prateleira(posicao_prateleira_TextField.getText());
+                stq.setQuant_atual(Integer.parseInt(quant_atual_TextField.getText()));
+                stq.setQuant_min(Integer.parseInt(quant_min_TextField.getText()));
+                stq.setCod_fabricante(cod_fabricante_TextField.getText());
+                stq.setDescricao(descricao_TextArea.getText());
+                
+                JOptionPane.showMessageDialog(null, "As informações foram atualizadas.","Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                stqDao.update(stq);
+                limparTexto();
+                btAlterar.setEnabled(false);
+                
+                break;
+            
+            case 1:
+                JOptionPane.showMessageDialog(null, "Nenhuma alteração foi feita.","AVISO",JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
         try {
             carregarTabela();
         } catch (Exception error) {
@@ -689,6 +755,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel id_estoque_Label;
     private javax.swing.JTextField id_estoque_TextField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
